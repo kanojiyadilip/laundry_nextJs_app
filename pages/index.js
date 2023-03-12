@@ -1,209 +1,196 @@
 import Head from 'next/head'
+// import "slick-carousel/slick/C.css";
+// import "slick-carousel/slick/slick-theme.css";
+import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
+import {useRouter} from 'next/router';
+import Form from '../component/form';
+import swal from 'sweetalert2';
+// window.Swal = swal;
+
+
+const preventDefault = f => e => {
+  e.preventDefault()
+  f(e)
+}
 
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(()=>{
+    // window.Swal = swal;
+    // Swal.fire('Message Send Successfully.', 'We will contact soon you.','success');
+    // window.Swal = swal;
+    // swal("Hello world!");
+  //   let pid = router.query
+  //   document.getElementById(pid.scroll)?setTimeout(()=>{document.getElementById(pid.scroll).scrollIntoView()},50):'';
+  })
+
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 1000,
+    prevArrow: false,
+    nextArrow: false
+  };
+
   return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
+    <>
+    <Head>
+    {/* <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> */}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      charset="UTF-8"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+    />
+    </Head>
+    <div className="index-main">
+    <div className="home-top">
+    <Slider {...settings}>
+      <div className="dark-img">
+        <span className="banner-text">
+        <Fade left><h3 className="monts-font" >Now our laundry plateform is online for over all mumbai</h3></Fade>
+        <Fade right><h3>It's our online laundry startup platform</h3></Fade>
+        </span>
+        <img className="main-carsoler" src={'/img/slider5.png'} />
+      </div>
+      <div className="dark-img">
+        <span className="banner-text">
+        <Fade bottom><h3 className="monts-font" >we are try to provide best laundry service.</h3></Fade>
+        </span>
+        <img className="main-carsoler" src={'/img/slider4.jpg'} />
+      </div>
+      {/* <div>
+      <img className="main-carsoler" src={'https://uclean.in/images/items/banner/8CTSiwHHWorgrBGco0C8.png'} />
+      </div>
+      <div>
+      <img className="main-carsoler" src={'https://uclean.in/images/items/banner/U0Gq1XFY3bb6CFXGw047.png'} />
+      </div> */}
+    </Slider>
     </div>
+    <div>
+      <h2 style={{textAlign:'center', padding: '40px 0'}}>Services</h2>
+      <Fade bottom>
+      <div>
+      <div className="row bh-h" style={{margin: '0px'}} >
+        <div className="col-md-4" style={{textAlign:'center'}}>
+          <Zoom>
+          <div style={{borderRadius: '50%', backgroundColor: '#94deefcf', height: '200px', width: '200px', margin: 'auto'}}>
+            <img src={'/img/iron.png'} style={{width:'100%', padding:'30px'}} />
+          </div>
+          <h3 className="service-title">Iron</h3>
+          </Zoom>
+        </div>
+        <div className="col-md-4" style={{textAlign:'center'}}>
+          <Zoom>
+          <div style={{borderRadius: '50%', backgroundColor: '#94deefcf', height: '200px', width: '200px', margin: 'auto'}}>
+            <img src={'/img/dryclean.png'} style={{width:'100%', padding:'30px'}} />
+          </div>
+          <h3 className="service-title">Dryclean</h3>
+          </Zoom>
+        </div>
+        <div className="col-md-4" style={{textAlign:'center'}}>
+          <Zoom>
+          <div style={{borderRadius: '50%', backgroundColor: '#94deefcf', height: '200px', width: '200px', margin: 'auto'}}>
+            <img src={'/img/wash.svg'} style={{width:'100%', padding:'30px'}} />
+          </div>
+          <h3 className="service-title">Wash</h3>
+          </Zoom>
+        </div>
+      </div>
+      </div>
+      </Fade>
+      {/* <Form /> */}
+
+      <Fade right>
+      <div id="about-us" className="about_us_div">
+        <p className="about_title">About Us</p>
+        <div style={{maxWidth: '900px'}}>
+        <Fade left>
+        <p className="about_us_p">
+        We at companyName! love to see the smile on your face. 
+        We offer a world class dry cleaning system that involves a vast range of services from stain removal to a luscious fragrance finish. 
+        'companyName' is a Spanish expression that means 'everything's great!'. 
+        It is not meant to convey the state of affairs but rather a way of doing things. 
+        This is the core philosophy of companyName!
+        </p>
+        </Fade>
+        <Fade left>
+        <p className="about_us_p">
+          companyName! aspires to meet your standards of service and fabric care and truly believes in ensuring customer delight each and every time.
+        </p>
+        </Fade>
+        <Fade left>
+        <p className="about_us_p">
+          companyName! is the preferred choice of fashion stylists, celebrities & fashion designers across 
+          the city for our proven expertise in designer wear, pret and couture. Don't risk your favorite 
+          clothes with anybody else!        
+        </p>
+        </Fade>
+        </div>
+      </div>
+      </Fade>
+
+      <div  id="process" class="botline">
+      <p className="our_process">Our Process</p>
+
+          <div className="row" style={{margin: '0px', padding: '50px 0'}}>
+              <div  className="col-md-3" style={{textAlign:'center'}}>
+                <Fade left>
+                <img src={'/img/schedule4.jpg'} style={{width: '100px'}}/>
+                </Fade>
+                <hr/>
+                <div>
+                  <p>1. Schedule a Pickup</p>
+                </div>
+              </div>
+              <div  className="col-md-3" style={{textAlign:'center'}}>
+                <Fade left>
+                <img src={'/img/pickup1.png'} style={{width: '100px'}} />
+                </Fade>
+                <hr/>
+                <div>
+                  <p>2. We collect your cloths</p>
+                </div>
+              </div>
+              <div  className="col-md-3" style={{textAlign:'center'}}>
+                <Fade left>
+                <img src={'/img/washing_machine2.png'} style={{width: '100px'}} />
+                </Fade>
+                <hr/>
+                <div>
+                  <p>3. We clean your clothes</p>
+                </div>
+              </div>
+              <div  className="col-md-3" style={{textAlign:'center'}}>
+                <Fade left>
+                <img src={'/img/delivery4.png'} style={{width: '100px', height: '70px',  margin: '15px 0'}} />
+                </Fade>
+                <hr/>
+                <div>
+                  <p>4. Return your clean clothes</p>
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <div id="book">
+        <Form />
+      </div>  
+    </div>
+    </div>
+    </>
   )
 }

@@ -1,15 +1,25 @@
 {
   "name": "learn-starter",
   "version": "0.1.0",
+  "main": "function.js",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export",
+    "deploy": "cross-env NODE_ENV=production firebase deploy --only functions,hosting"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "bootstrap": "^4.5.3",
+    "mongoose": "^5.11.10",
     "next": "^10.0.0",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "16.13.1",
+    "react-reveal": "^1.2.2",
+    "react-slick": "^0.27.13",
+    "sweetalert2": "^10.13.0"
   }
 }
